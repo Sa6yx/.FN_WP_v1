@@ -512,6 +512,13 @@ main .recent-orders a {
      margin-bottom: 1rem;
 }
 
+.right .recent-updates .updates .update i {
+     color: rgb(255, 182, 26);
+     position: relative;
+     top: 0.5rem;
+
+}
+
 /*============ SALES ANALYTICS ===============*/
 .right .sales-analytics {
      margin-top: 2rem;
@@ -723,16 +730,16 @@ main .recent-orders a {
      }
 }
 
-/*============== CUSTOMERS ===================*/
-main.recent-customers {
+/*======================= CUSTOMERS ================================================================================================*/
+main .recent-customers {
      margin-top: 2rem;
 }
 
-main.recent-customers h2 {
+main .recent-customers h2 {
      margin-bottom: 0.8rem;
 }
 
-main.recent-customers table {
+main .recent-customers table {
      background: var(--color-white);
      width: 100%;
      border-radius: var(--card-border-radius);
@@ -742,23 +749,34 @@ main.recent-customers table {
      transition: all 300ms ease;
 }
 
-main.recent-customers table:hover {
+main .recent-customers table:hover {
      box-shadow: none;
 }
 
-main.recent-customers table tbody td {
+main .recent-customers table tbody td {
      height: 2.8rem;
      border-bottom: 1px solid var(--color-light);
      color: var(--color-dark-variant);
 }
 
-main.recent-customers table tbody tr:last-child td {
+main .recent-customers table tbody tr:last-child td {
      border: none;
 }
 
-main.recent-customers a {
+main .recent-customers a {
      text-align: center;
      display: block;
      margin: 1rem auto;
      color: var(--color-primary);
+}
+
+/*----active/non-active-----*/
+main .recent-customers table tbody tr.active td {
+     color: var(--color-success);
+     font-weight: bold;
+}
+
+main .recent-customers table tbody tr.non-active td {
+     color: var(--color-danger);
+     font-weight: bold;
 }

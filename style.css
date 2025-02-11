@@ -284,11 +284,29 @@ main{
 }
 
 main .date{
+     font-family: Outfit, sans-serif;
      display: inline-block;
      background: var(--color-light);
      border-radius: var(--border-radius-1);
      margin-top: 1rem;
      padding: 0.5rem 1.6rem;
+}
+#clock {
+     display: inline-block;
+     background: var(--color-light);
+     padding: 0.4rem 1.8rem;
+     border-radius: var(--border-radius-1);
+     top: 5rem;
+     left: 30rem;
+     transition: all 300ms ease;
+     position: absolute;
+     display: inline-block;
+     font-family: Poppins, sans-serif;
+     font-size: 1rem;
+     font-weight: 400;
+     color: var(--color-dark);
+     transition: all 300ms ease;
+     z-index: 0;
 }
 
 main .date input[type='date']{
@@ -309,6 +327,7 @@ main .insights > div {
      margin-top: 1rem;
      box-shadow: var(--box-shadow);
      transition: all 300ms ease;
+     z-index: 1;
 }
 
 main .insights > div:hover {
@@ -391,6 +410,11 @@ main .insights .progress .number{
      display: flex;
      justify-content: center;
      align-items: center;
+}
+
+main .insights .progress h3 {
+     position: relative;
+     bottom: 0.2rem;
 }
 
 main .insights small {
@@ -510,13 +534,6 @@ main .recent-orders a {
      grid-template-columns: 2.6rem auto;
      gap: 1rem;
      margin-bottom: 1rem;
-}
-
-.right .recent-updates .updates .update i {
-     color: rgb(255, 182, 26);
-     position: relative;
-     top: 0.5rem;
-
 }
 
 /*============ SALES ANALYTICS ===============*/
@@ -729,6 +746,7 @@ main .recent-orders a {
           font-size: 2rem;
      }
 }
+/*======================== OTHER FEA ===========================================================================================================*/
 
 /*======================= CUSTOMERS ================================================================================================*/
 main .recent-customers {
@@ -780,3 +798,19 @@ main .recent-customers table tbody tr.non-active td {
      color: var(--color-danger);
      font-weight: bold;
 }
+/*------ picture ------*/
+
+/* Style for profile pictures in the table */
+.recent-customers table tbody td .profile-photo {
+     width: 1.9rem;
+     height: 1.9rem;
+     border-radius: 50%;
+     overflow: hidden;
+     margin: 0 auto;
+ }
+ 
+ .recent-customers table tbody td .profile-photo img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+ }

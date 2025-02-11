@@ -287,7 +287,7 @@ main .date{
      font-family: Outfit, sans-serif;
      display: inline-block;
      background: var(--color-light);
-     border-radius: var(--border-radius-1);
+     border-radius: var(--card-border-radius);
      margin-top: 1rem;
      padding: 0.5rem 1.6rem;
 }
@@ -295,7 +295,7 @@ main .date{
      display: inline-block;
      background: var(--color-light);
      padding: 0.4rem 1.8rem;
-     border-radius: var(--border-radius-1);
+     border-radius: var(--card-border-radius);
      top: 5rem;
      left: 30rem;
      transition: all 300ms ease;
@@ -813,4 +813,40 @@ main .recent-customers table tbody tr.non-active td {
      width: 100%;
      height: 100%;
      object-fit: cover;
+ }
+ /*--------- region filter --------------*/
+ 
+.region-filter {
+     background: var(--color-white);
+     padding: var(--card-padding);
+     border-radius: var(--card-border-radius);
+     box-shadow: var(--box-shadow);
+     margin-top: 1rem;
+     transition: all 300ms ease;
+ }
+ 
+ .region-filter:hover {
+     box-shadow: none;
+ }
+ 
+ .region-filter h2 {
+     font-size: 1.2rem;
+     margin-bottom: 1rem;
+ }
+ 
+ .region-filter select {
+     width: 100%;
+     padding: 0.5rem;
+     border-radius: var(--border-radius-1);
+     border: 1px solid var(--color-light);
+     background: var(--color-background);
+     color: var(--color-dark);
+     font-family: Poppins, sans-serif;
+     font-size: 0.9rem;
+     cursor: pointer;
+ }
+ 
+ .region-filter select:focus {
+     outline: none;
+     border-color: var(--color-primary);
  }

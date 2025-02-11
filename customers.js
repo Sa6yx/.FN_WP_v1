@@ -59,7 +59,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-//========================= CUSTOMERS ================================================================================================//
+// Clock
+function updateClock() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    const timeString = `${hours} : ${minutes} : ${seconds}`;
+    document.getElementById('clock').textContent = timeString;
+}
+
+updateClock(); // Call the function once to initialize the clock
+setInterval(updateClock, 1000); // Update the clock every second
+
+// Show sidebar
+menuBtn.addEventListener('click', () => {
+    sideMenu.style.display = 'block';
+});
+
+// Close sidebar
+closeBtn.addEventListener('click', () => {
+    sideMenu.style.display = 'none';
+});
+
+// ========================= CUSTOMERS ================================================================================================ //
+
 const Customers = [
     {
         customerName: 'Toji Fushiguro',
@@ -213,12 +237,12 @@ const Customers = [
         phoneNumber: '+996 552 321 098',
         location: 'Naryn, Kyrgyzstan',
         status: 'Non-active',
-        profilePicture: 'images/user3.jpg'
+        profilePicture: 'images/user3.jpeg'
     }
     
 ];
 
-// func to fill customers table
+// Function to fill the customers table
 function fillCustomersTable(customersToShow) {
     const tableBody = document.querySelector('.recent-customers table tbody');
     tableBody.innerHTML = ''; // Clear the table before filling
@@ -242,17 +266,46 @@ function fillCustomersTable(customersToShow) {
     });
 }
 
+// Function to filter customers by region
+function filterCustomersByRegion(region) {
+    if (region === "All") {
+        fillCustomersTable(Customers.slice(0, 8)); // Show only 8 customers initially
+    } else {
+        const filteredCustomers = Customers.filter(customer => customer.location.includes(region));
+        fillCustomersTable(filteredCustomers); // Show customers from the selected region
+    }
+}
 
+// Add event listener for region filter
+const regionSelect = document.getElementById('region-select');
+regionSelect.addEventListener('change', (event) => {
+    const selectedRegion = event.target.value;
+    filterCustomersByRegion(selectedRegion);
+});
+
+// Initially show only 8 customers
 fillCustomersTable(Customers.slice(0, 8));
 
+// Show All / Show Less functionality
 const showAllBtn = document.querySelector('.recent-customers a');
 
 showAllBtn.addEventListener('click', () => {
+    const selectedRegion = document.getElementById('region-select').value;
     if (showAllBtn.textContent === 'Show All') {
-        fillCustomersTable(Customers); // Show all customers
+        if (selectedRegion === "All") {
+            fillCustomersTable(Customers); // Show all customers
+        } else {
+            const filteredCustomers = Customers.filter(customer => customer.location.includes(selectedRegion));
+            fillCustomersTable(filteredCustomers); // Show all customers from the selected region
+        }
         showAllBtn.textContent = 'Show Less';
     } else {
-        fillCustomersTable(Customers.slice(0, 8)); // Show only 8 clients
+        if (selectedRegion === "All") {
+            fillCustomersTable(Customers.slice(0, 8)); // Show only 8 customers
+        } else {
+            const filteredCustomers = Customers.filter(customer => customer.location.includes(selectedRegion));
+            fillCustomersTable(filteredCustomers.slice(0, 8)); // Show only 8 customers from the selected region
+        }
         showAllBtn.textContent = 'Show All';
     }
 });

@@ -92,3 +92,56 @@ showAllBtn.addEventListener('click', () => {
         showAllBtn.textContent = 'Show All';
     }
 });
+
+//============== SETTINGS =============================================================================================================//
+// Updating the user name
+function updateUsername() {
+    const newUsername = document.getElementById('username').value;
+    if (newUsername) {
+        alert(`Имя пользователя изменено на: ${newUsername}`);
+    } else {
+        alert('Пожалуйста, введите новое имя пользователя.');
+    }
+}
+
+// Updating your profile picture
+function updateProfilePicture(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('profile-picture').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+// Updating contact information
+function updateContactInfo() {
+    const newEmail = document.getElementById('email').value;
+    const newPhone = document.getElementById('phone').value;
+    if (newEmail || newPhone) {
+        alert(`Контактная информация обновлена:\nEmail: ${newEmail}\nТелефон: ${newPhone}`);
+    } else {
+        alert('Пожалуйста, введите новый email или номер телефона.');
+    }
+}
+
+// Password update
+function updatePassword() {
+    const currentPassword = document.getElementById('current-password').value;
+    const newPassword = document.getElementById('new-password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    if (newPassword !== confirmPassword) {
+        alert('Новый пароль и подтверждение пароля не совпадают.');
+        return;
+    }
+
+    if (currentPassword && newPassword) {
+        alert('Пароль успешно изменен.');
+        
+    } else {
+        alert('Пожалуйста, заполните все поля.');
+    }
+}

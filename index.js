@@ -145,3 +145,9 @@ function updatePassword() {
         alert('Пожалуйста, заполните все поля.');
     }
 }
+
+function removePaymentMethod(methodId) {
+    // logic <>
+    console.log(`Удаление платежного метода: ${methodId}`);
+    alert(`Платежный метод ${methodId} удален.`);
+}

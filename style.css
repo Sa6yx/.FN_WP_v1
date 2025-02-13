@@ -77,6 +77,151 @@
      --box-shadow:0 2rem 3rem var(--color-light)
  }
 
+ /* ----------LOGIN PAGE STYLEE------------ */
+
+.login-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     background: var(--color-background);
+     padding: 2rem;
+ }
+ 
+ .login-form {
+     background: var(--color-white);
+     padding: 2rem;
+     border-radius: var(--card-border-radius);
+     box-shadow: var(--box-shadow);
+     width: 100%;
+     max-width: 400px;
+     text-align: center;
+     transition: all 300ms ease;
+ }
+ 
+ .login-form:hover {
+     box-shadow: none;
+ }
+ 
+ .login-form .logo {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 0.8rem;
+     margin-bottom: 1.5rem;
+ }
+ 
+ .login-form .logo img {
+     width: 2rem;
+     height: 2rem;
+ }
+ 
+ .login-form .logo h2 {
+     font-size: 2rem;
+     color: var(--color-dark);
+ }
+ 
+ .login-form h2 {
+     font-size: 1.5rem;
+     margin-bottom: 0.5rem;
+     color: var(--color-dark);
+ }
+ 
+ .login-form p {
+     color: var(--color-dark-variant);
+     margin-bottom: 2rem;
+ }
+ 
+ .login-form .input-group {
+     margin-bottom: 1.5rem;
+     text-align: left;
+ }
+ 
+ .login-form .input-group label {
+     display: block;
+     margin-bottom: 0.5rem;
+     color: var(--color-dark);
+     font-size: 0.9rem;
+ }
+ 
+ .login-form .input-group input {
+     width: 100%;
+     padding: 0.75rem;
+     border: 1px solid var(--color-light);
+     border-radius: var(--border-radius-1);
+     font-family: Poppins, sans-serif;
+     font-size: 0.9rem;
+     color: var(--color-dark);
+     transition: all 300ms ease;
+ }
+ 
+ .login-form .input-group input:focus {
+     outline: none;
+     border-color: var(--color-primary);
+     box-shadow: 0 0 0 2px rgba(115, 128, 236, 0.2);
+ }
+ 
+ .login-form .btn-primary {
+     width: 100%;
+     background: var(--color-primary);
+     color: var(--color-white);
+     padding: 0.75rem;
+     border: none;
+     border-radius: var(--border-radius-1);
+     font-family: Poppins, sans-serif;
+     font-size: 1rem;
+     cursor: pointer;
+     transition: all 300ms ease;
+ }
+ 
+ .login-form .btn-primary:hover {
+     background: var(--color-dark);
+ }
+ 
+ .login-footer {
+     margin-top: 1.5rem;
+     font-size: 0.9rem;
+     color: var(--color-dark-variant);
+ }
+ 
+ .login-footer a {
+     color: var(--color-primary);
+     text-decoration: none;
+     transition: all 300ms ease;
+ }
+ 
+ .login-footer a:hover {
+     color: var(--color-dark);
+ }
+ 
+ .error-message {
+     color: var(--color-danger);
+     margin-top: 1rem;
+     display: none;
+     font-size: 0.9rem;
+ }
+ 
+ .password-wrapper {
+     position: relative;
+ }
+ 
+ .password-wrapper input {
+     padding-right: 2.5rem; /* Оставляем место для иконки */
+ }
+ 
+ .toggle-password {
+     position: absolute;
+     right: 0.75rem;
+     top: 50%;
+     transform: translateY(-50%);
+     cursor: pointer;
+     color: var(--color-dark-variant);
+ }
+ 
+ .toggle-password i {
+     font-size: 1.2rem;
+ }
+
  /*--------- [Main Page] -----------*/
  
  *{
@@ -762,7 +907,7 @@ main .recent-customers table {
      width: 100%;
      border-radius: var(--card-border-radius);
      padding: var(--card-padding);
-     text-align: center;
+     text-align: left;
      box-shadow: var(--box-shadow);
      transition: all 300ms ease;
 }
@@ -777,6 +922,24 @@ main .recent-customers table tbody td {
      color: var(--color-dark-variant);
 }
 
+main .recent-customers table thead th {
+     position: relative;
+     bottom: 1rem;
+     height: 2rem;
+}
+main .recent-customers table thead th:first-child {
+     position: relative;
+     bottom: 0.6rem;
+     height: 2rem;
+}
+
+main .recent-customers table thead i {
+     position: relative;
+     top: 0.5rem;
+     left: 0.5rem   ;
+     height: 2rem;
+}
+
 main .recent-customers table tbody tr:last-child td {
      border: none;
 }
@@ -788,16 +951,6 @@ main .recent-customers a {
      color: var(--color-primary);
 }
 
-/*----active/non-active-----*/
-main .recent-customers table tbody tr.active td {
-     color: var(--color-success);
-     font-weight: bold;
-}
-
-main .recent-customers table tbody tr.non-active td {
-     color: var(--color-danger);
-     font-weight: bold;
-}
 /*------ picture ------*/
 
 /* Style for profile pictures in the table */
@@ -844,7 +997,7 @@ main .recent-customers table tbody tr.non-active td {
      background: var(--color-background);
      color: var(--color-dark);
      font-family: Poppins, sans-serif;
-     font-size: 0.9rem;
+     font-size: 0.8rem;
      cursor: pointer;
  }
  
@@ -884,11 +1037,13 @@ main .recent-customers table tbody tr.non-active td {
  }
  
  .search-bar button {
+     position: relative;
+     left: 0.5rem;
      background: var(--color-primary);
      color: var(--color-white);
      border: none;
-     padding: 0.5rem;
-     border-radius: var(--border-radius-2);
+     padding: 0.4rem 0.6rem;
+     border-radius: 50%;
      cursor: pointer;
      transition: all 300ms ease;
  }
@@ -943,41 +1098,47 @@ main .recent-customers table tbody tr.non-active td {
 
  /*==================== SETTINGS ======================================================================================================================*/
 
- /* Settings Section */
-.settings {
+ .settings-container {
+     display: flex;
+     flex-direction: row;
+     gap: 1.6rem;
+ }
+
+ .settings {
      width: 40%;
-     margin-top: 2rem;
+     margin-top: 1rem;
      background: var(--color-white);
      padding: var(--card-padding);
      border-radius: var(--card-border-radius);
      box-shadow: var(--box-shadow);
      transition: all 300ms ease;
  }
- 
- .settings:hover {
+
+.settings:hover {
      box-shadow: none;
- }
- 
-.settings .setting-item .s4i {
+}
+
+/* Styles for settings items */
+.setting-item {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 1rem;
+}
+
+.setting-item h3 {
+     font-size: 1rem;
+     color: var(--color-dark);
+}
+
+.setting-item .s4i {
      position: relative;
-     display: inline-block;
      top: 0.5rem;
      margin-right: 1rem;
 }
 
- .setting-item {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     margin-bottom: 1.5rem;
- }
- 
- .setting-item h3 {
-     font-size: 1rem;
-     color: var(--color-dark);
- }
- 
- .setting-item .theme-toggler {
+/* Styles for the theme switcher */
+.setting-item .theme-toggler {
      background: var(--color-light);
      display: flex;
      justify-content: space-between;
@@ -986,24 +1147,25 @@ main .recent-customers table tbody tr.non-active td {
      width: 4.2rem;
      cursor: pointer;
      border-radius: var(--border-radius-1);
- }
- 
- .setting-item .theme-toggler i {
+}
+
+.setting-item .theme-toggler i {
      font-size: 1.2rem;
      width: 50%;
      height: 100%;
      display: flex;
      align-items: center;
      justify-content: center;
- }
- 
- .setting-item .theme-toggler i.active {
+}
+
+.setting-item .theme-toggler i.active {
      background: var(--color-primary);
      color: white;
      border-radius: var(--border-radius-1);
- }
- 
- .setting-item select {
+}
+
+/* Styles for dropdown lists */
+.setting-item select {
      padding: 0.5rem;
      border-radius: var(--border-radius-1);
      border: 1px solid var(--color-light);
@@ -1012,14 +1174,15 @@ main .recent-customers table tbody tr.non-active td {
      font-family: Poppins, sans-serif;
      font-size: 0.9rem;
      cursor: pointer;
- }
- 
- .setting-item select:focus {
+}
+
+.setting-item select:focus {
      outline: none;
      border-color: var(--color-primary);
- }
- 
- .setting-item .btn-primary {
+}
+
+/* Styles for buttons */
+.setting-item .btn-primary {
      background: var(--color-primary);
      color: var(--color-white);
      padding: 0.5rem 1rem;
@@ -1027,121 +1190,113 @@ main .recent-customers table tbody tr.non-active td {
      border: none;
      cursor: pointer;
      transition: all 300ms ease;
- }
- 
- .setting-item .btn-primary:hover {
-     background: var(--color-dark);
- }
- 
- /* Switch for Notifications */
+}
 
+.setting-item .btn-primary:hover {
+     background: var(--color-dark);
+}
+
+/* Styles for the notification switcher */
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 4.2rem; 
-    height: 1.6rem;
-    background: var(--color-light);
-    border-radius: var(--border-radius-1);
-    cursor: pointer;
-    transition: all 300ms ease;
+     position: relative;
+     display: inline-block;
+     width: 4.2rem;
+     height: 1.6rem;
+     background: var(--color-light);
+     border-radius: var(--border-radius-1);
+     cursor: pointer;
+     transition: all 300ms ease;
 }
 
 .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+     opacity: 0;
+     width: 0;
+     height: 0;
 }
 
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--color-danger);
-    transition: 0.3s;
-    border-radius: var(--border-radius-1);
+     position: absolute;
+     cursor: pointer;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-color: var(--color-danger);
+     transition: 0.3s;
+     border-radius: var(--border-radius-1);
 }
 
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 1.6rem; 
-    width: 2.1rem;
-    left: 0rem; 
-    bottom: 0rem;
-    background-color: var(--color-primary);
-    transition: 0.4s;
-    border-radius: var(--border-radius-1);
+     position: absolute;
+     content: "";
+     height: 1.6rem;
+     width: 2.1rem;
+     left: 0rem;
+     bottom: 0rem;
+     background-color: var(--color-primary);
+     transition: 0.4s;
+     border-radius: var(--border-radius-1);
 }
 
 input:checked + .slider {
-    background-color: var(--color-success); 
+     background-color: var(--color-success);
 }
 
 input:checked + .slider:before {
-    transform: translateX(2.15rem);
+     transform: translateX(2.15rem);
 }
 
-/*------------------- Profile Settings Section ----------------*/
-
+/* Profile Styles */
 .profile-settings {
-     margin-top: 2rem;
-     margin-bottom: 2rem;
+     width: 60%; 
+     margin-top: 1rem;
      background: var(--color-white);
      padding: var(--card-padding);
      border-radius: var(--card-border-radius);
      box-shadow: var(--box-shadow);
      transition: all 300ms ease;
  }
- 
- .profile-settings:hover {
+
+.profile-settings:hover {
      box-shadow: none;
- }
- 
- .profile-settings h2 {
+}
+
+.profile-settings h2 {
      margin-bottom: 1.5rem;
      font-size: 1.5rem;
      color: var(--color-dark);
      border-bottom: 2px solid var(--color-primary);
      padding-bottom: 0.5rem;
- }
- 
- .profile-settings .setting-item {
-     margin-bottom: 2rem;
- }
- 
- .profile-settings .setting-item h3 {
-     font-size: 1rem;
-     color: var(--color-dark);
-     margin-bottom: 0.5rem;
- }
- 
- .profile-settings .input-group {
+}
+
+.profile-settings .setting-item {
+     margin-bottom: 1rem;
+}
+
+.profile-settings .input-group {
      display: flex;
      flex-direction: row;
      gap: 0.5rem;
- }
- 
- .profile-settings input {
+}
+
+.profile-settings input {
      width: 100%;
      padding: 0.75rem;
      border: 1px solid var(--color-light);
      border-radius: var(--border-radius-1);
      font-family: Poppins, sans-serif;
-     font-size: 0.9rem;
+     font-size: 0.8rem;
      color: var(--color-dark);
      transition: all 300ms ease;
- }
- 
- .profile-settings input:focus {
+}
+
+.profile-settings input:focus {
      outline: none;
      border-color: var(--color-primary);
      box-shadow: var(--color-dark);
- }
- 
- .profile-settings .btn-primary {
+}
+
+.profile-settings .btn-primary {
      background: var(--color-primary);
      color: var(--color-white);
      padding: 0.75rem 1rem;
@@ -1151,37 +1306,36 @@ input:checked + .slider:before {
      font-family: Poppins, sans-serif;
      font-size: 0.9rem;
      transition: all 300ms ease;
-     align-self: flex-   start;
- }
- 
- .profile-settings .btn-primary:hover {
+}
+
+.profile-settings .btn-primary:hover {
      background: var(--color-dark);
- }
- 
- .profile-settings .profile-photo-upload {
+}
+
+.profile-settings .profile-photo-upload {
      display: flex;
      align-items: center;
      gap: 1rem;
- }
- 
- .profile-settings .profile-photo-upload img {
-     width: 60px;
-     height: 60px;
+}
+
+.profile-settings .profile-photo-upload img {
+     width: 40px;
+     height: 40px;
      border-radius: 50%;
      object-fit: cover;
      border: 2px solid var(--color-light);
      transition: all 300ms ease;
- }
- 
- .profile-settings .profile-photo-upload img:hover {
+}
+
+.profile-settings .profile-photo-upload img:hover {
      border-color: var(--color-primary);
- }
- 
- .profile-settings .profile-photo-upload input[type="file"] {
+}
+
+.profile-settings .profile-photo-upload input[type="file"] {
      display: none;
- }
- 
- .profile-settings .profile-photo-upload label {
+}
+
+.profile-settings .profile-photo-upload label {
      background: var(--color-primary);
      color: var(--color-white);
      padding: 0.75rem 1rem;
@@ -1190,9 +1344,10 @@ input:checked + .slider:before {
      font-family: Poppins, sans-serif;
      font-size: 0.9rem;
      transition: all 300ms ease;
- }
- 
- .profile-settings .profile-photo-upload label:hover {
-     background: var(--color-dark);
- }
+}
 
+.profile-settings .profile-photo-upload label:hover {
+     background: var(--color-dark);
+}
+
+     

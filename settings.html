@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="sidebar">
-                <a href="index.html">
+                <a href="index-2.html">
                     <i class="material-symbols-sharp">team_dashboard</i>
                     <h3>Dashboard</h3>
                 </a>
@@ -65,7 +65,7 @@
                     <i class="material-symbols-sharp">add</i>
                     <h3>Add product</h3>
                 </a>
-                <a href="#">
+                <a href="index-2.html">
                     <i class="material-symbols-sharp">logout</i>
                     <h3>Log out</h3>
                 </a>
@@ -78,67 +78,69 @@
                 <input type="date">
                 <div id="clock"></div>
             </div>
-            <div class="settings">
-                <div class="setting-item">
-                    <h3><i class="material-symbols-sharp s4i">light</i>Theme</h3>
-                    <div class="theme-toggler">
-                        <i class="material-symbols-sharp active">light_mode</i>
-                        <i class="material-symbols-sharp">dark_mode</i>
+            <div class="settings-container">
+                <div class="settings">
+                    <div class="setting-item">
+                        <h3><i class="material-symbols-sharp s4i">light</i>Theme</h3>
+                        <div class="theme-toggler">
+                            <i class="material-symbols-sharp active">light_mode</i>
+                            <i class="material-symbols-sharp">dark_mode</i>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <h3><i class="material-symbols-sharp s4i">notifications</i>Notifications</h3>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <h3><i class="material-symbols-sharp s4i">translate</i>Language</h3>
+                        <select>
+                            <option value="en">English</option>
+                            <option value="ru">Russian</option>
+                            <option value="kg">Kyrgyz</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <h3><i class="material-symbols-sharp s4i">privacy_tip</i>Privacy</h3>
+                        <button class="btn-primary">Manage Privacy Settings</button>
                     </div>
                 </div>
-                <div class="setting-item">
-                    <h3><i class="material-symbols-sharp s4i">notifications</i>Notifications</h3>
-                    <label class="switch">
-                        <input type="checkbox" checked>
-                        <span class="slider"></span>
-                    </label>
-                </div>
-                <div class="setting-item">
-                    <h3><i class="material-symbols-sharp s4i">translate</i>Language</h3>
-                    <select>
-                        <option value="en">English</option>
-                        <option value="ru">Russian</option>
-                        <option value="kg">Kyrgyz</option>
-                    </select>
-                </div>
-                <div class="setting-item">
-                    <h3><i class="material-symbols-sharp s4i">privacy_tip</i>Privacy</h3>
-                    <button class="btn-primary">Manage Privacy Settings</button>
-                </div>
-            </div>
-            <!--prof settings-->
-            <div class="profile-settings">
-                <h2>Profile Settings</h2>
-                <div class="setting-item">
-                    <h3>User Name</h3>
-                    <div class="input-group">
-                        <input type="text" id="username" placeholder="Enter new username">
-                        <button class="btn-primary" onclick="updateUsername()">Save</button>
+                <!--prof sett-->
+                <div class="profile-settings">
+                    <h2>Profile Settings</h2>
+                    <div class="setting-item">
+                        <h3>User Name</h3>
+                        <div class="input-group">
+                            <input type="text" id="username" placeholder="Enter new username">
+                            <button class="btn-primary" onclick="updateUsername()">Save</button>
+                        </div>
                     </div>
-                </div>
-                <div class="setting-item">
-                    <h3>Profile Picture</h3>
-                    <div class="profile-photo-upload">
-                        <img id="profile-picture" src="images/gojo.jpg" alt="Profile Picture">
-                        <input type="file" id="profile-picture-input" accept="image/*" onchange="updateProfilePicture(event)">
-                        <label for="profile-picture-input" class="btn-primary">Upload Photo</label>
+                    <div class="setting-item">
+                        <h3>Profile Picture</h3>
+                        <div class="profile-photo-upload">
+                            <img id="profile-picture" src="images/gojo.jpg" alt="Profile Picture">
+                            <input type="file" id="profile-picture-input" accept="image/*" onchange="updateProfilePicture(event)">
+                            <label for="profile-picture-input" class="btn-primary">Upload Photo</label>
+                        </div>
                     </div>
-                </div>
-                <div class="setting-item">
-                    <h3>Contact Information</h3>
-                    <div class="input-group">
-                        <input type="email" id="email" placeholder="Enter new email">
-                        <input type="tel" id="phone" placeholder="Enter new phone number">
-                        <button class="btn-primary" onclick="updateContactInfo()">Save</button>
+                    <div class="setting-item">
+                        <h3>Contact Information</h3>
+                        <div class="input-group">
+                            <input type="email" id="email" placeholder="Enter new email">
+                            <input type="tel" id="phone" placeholder="Enter new phone number">
+                            <button class="btn-primary" onclick="updateContactInfo()">Save</button>
+                        </div>
                     </div>
-                </div>
-                <div class="setting-item">
-                    <h3>Password</h3>
-                    <div class="input-group">
-                        <input type="password" id="current-password" placeholder="Current password">
-                        <input type="password" id="new-password" placeholder="New password">
-                        <input type="password" id="confirm-password" placeholder="Confirm new password">
-                        <button class="btn-primary" onclick="updatePassword()">Change Password</button>
+                    <div class="setting-item">
+                        <h3>Password</h3>
+                        <div class="input-group">
+                            <input type="password" id="current-password" placeholder="Current password">
+                            <input type="password" id="new-password" placeholder="New password">
+                            <input type="password" id="confirm-password" placeholder="Confirm new password">
+                            <button class="btn-primary" onclick="updatePassword()">Save</button>
+                        </div>
                     </div>
                 </div>
             </div>

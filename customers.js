@@ -89,7 +89,7 @@ const Customers = [
         customerName: 'Toji Fushiguro', phoneNumber: '+996 500 123 456', location: 'Bishkek, Kyrgyzstan', status: 'Active', profilePicture: 'images/toji.jpg'
     },
     {
-        customerName: 'Akylai Aitbekova', phoneNumber: '+996 554 675 445', location: 'Osh, Kyrgyzstan', status: 'Non-active', profilePicture: 'images/user3.jpeg'
+        customerName: 'Tadzhibaev Khamidillo', phoneNumber: '+996 550 587 818', location: 'Osh, Kyrgyzstan', status: 'Non-active', profilePicture: 'images/user3.jpeg'
     },
     {
         customerName: 'Aika Asanova', phoneNumber: '+996 707 987 654', location: 'Karakol, Kyrgyzstan', status: 'Active', profilePicture: 'images/user3.jpeg'
@@ -256,7 +256,7 @@ function fillCustomersTable(customersToShow) {
             <td>${customer.customerName}</td>
             <td>${customer.phoneNumber}</td>
             <td>${customer.location}</td>
-            <td class="${customer.status === 'Active' ? 'success' : 'warning'}">${customer.status}</td>
+            <td class="${customer.status === 'Active'? 'success': customer.status === 'Non-active'? 'danger': 'primary'}">${customer.status}</td>
             <td class="primary">Details</td>
         `;
         tr.innerHTML = trContent;
@@ -273,10 +273,55 @@ function filterCustomersByRegion(region) {
         fillCustomersTable(filteredCustomers); // Show customers from the selected region
     }
 }
+//search
+const searchInput = document.getElementById('search-input');
+searchInput.addEventListener('input', () => {
+    const searchTerm = searchInput.value.toLowerCase();
+    const filteredCustomers = Customers.filter(customer => 
+        customer.customerName.toLowerCase().includes(searchTerm) || 
+        customer.phoneNumber.toLowerCase().includes(searchTerm) || 
+        customer.location.toLowerCase().includes(searchTerm)
+    );
+    fillCustomersTable(filteredCustomers);
+});
+//sort
+function sortTable(column) {
+    Customers.sort((a, b) => {
+        if (a[column] < b[column]) return -1;
+        if (a[column] > b[column]) return 1;
+        return 0;
+    });
+    fillCustomersTable(Customers);
+}
+
+//pagination
+let currentPage = 1;
+const customersPerPage = 8;
+
+function updatePagination() {
+    const start = (currentPage - 1) * customersPerPage;
+    const end = start + customersPerPage;
+    fillCustomersTable(Customers.slice(start, end));
+    document.getElementById('page-info').textContent = `Page ${currentPage} of ${Math.ceil(Customers.length / customersPerPage)}`;
+}
+
+document.getElementById('next-page').addEventListener('click', () => {
+    if (currentPage < Math.ceil(Customers.length / customersPerPage)) {
+        currentPage++;
+        updatePagination();
+    }
+});
+
+document.getElementById('prev-page').addEventListener('click', () => {
+    if (currentPage > 1) {
+        currentPage--;
+        updatePagination();
+    }
+});
 
 // Add event listener for region filter
-const regionSelect = document.getElementById('region-select');
-regionSelect.addEventListener('change', (event) => {
+    const regionSelect = document.getElementById('region-select');
+    regionSelect.addEventListener('change', (event) => {
     const selectedRegion = event.target.value;
     filterCustomersByRegion(selectedRegion);
 });

@@ -87,12 +87,16 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Profile</th>
+                            <!-- <th>Profile</th>
                             <th>Customer Name</th>
                             <th>Phone Number</th>
                             <th>Location</th>
-                            <th>Status</th>
-                            <th></th>
+                            <th>Status</th> -->
+                            <th onclick="sortTable('profile')">Profile <i class="material-symbols-sharp">sort</i></th>
+                            <th onclick="sortTable('customerName')">Customer Name <i class="material-symbols-sharp">sort</i></th>
+                            <th onclick="sortTable('phoneNumber')">Phone Number <i class="material-symbols-sharp">sort</i></th>
+                            <th onclick="sortTable('location')">Location <i class="material-symbols-sharp">sort</i></th>
+                            <th onclick="sortTable('status')">Status <i class="material-symbols-sharp">sort</i></th>
                         </tr>
                     </thead>
                     <tbody class="customer">
@@ -100,6 +104,11 @@
                     </tbody>
                 </table>
                 <a href="#">Show All</a>
+            </div>
+            <div class="pagination">
+                <button id="prev-page">Previous</button>
+                <span id="page-info">Page 1 of 5</span>
+                <button id="next-page">Next</button>
             </div>
         </main>
         <div class="right">
@@ -121,7 +130,11 @@
                     </div>
                 </div>
             </div>
-            <h2 class="filter-h2">Filter by Region</h2>
+            <h2 class="filter-h2">Filter / Search</h2>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search by name, phone, or location...">
+                <button id="search-btn"><i class="material-symbols-sharp">search</i></button>
+            </div>
             <div class="region-filter">
                 <select id="region-select">
                     <option value="All">All</option>

@@ -566,6 +566,10 @@ main .insights small {
      margin-top: 1.6rem;
      display: block;
 }
+main .insights .progress h3 {
+     position: absolute;
+     top: 1.5rem;
+}
 
 /*================== RECENT ORDERS ====================*/
 main .recent-orders {

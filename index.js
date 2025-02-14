@@ -98,9 +98,9 @@ showAllBtn.addEventListener('click', () => {
 function updateUsername() {
     const newUsername = document.getElementById('username').value;
     if (newUsername) {
-        alert(`Имя пользователя изменено на: ${newUsername}`);
+        alert(`The username has been changed to: ${newUsername}`);
     } else {
-        alert('Пожалуйста, введите новое имя пользователя.');
+        alert('Please enter a new user name');
     }
 }
 
@@ -121,9 +121,9 @@ function updateContactInfo() {
     const newEmail = document.getElementById('email').value;
     const newPhone = document.getElementById('phone').value;
     if (newEmail || newPhone) {
-        alert(`Контактная информация обновлена:\nEmail: ${newEmail}\nТелефон: ${newPhone}`);
+        alert(`Contact information has been updated:\nEmail: ${newEmail}\nТелефон: ${newPhone}`);
     } else {
-        alert('Пожалуйста, введите новый email или номер телефона.');
+        alert('Please enter a new email or phone number');
     }
 }
 
@@ -134,20 +134,14 @@ function updatePassword() {
     const confirmPassword = document.getElementById('confirm-password').value;
 
     if (newPassword !== confirmPassword) {
-        alert('Новый пароль и подтверждение пароля не совпадают.');
+        alert('New password and password confirmation do not match');
         return;
     }
 
     if (currentPassword && newPassword) {
-        alert('Пароль успешно изменен.');
+        alert('Password successfully changed');
         
     } else {
-        alert('Пожалуйста, заполните все поля.');
+        alert('Please fill in all fields');
     }
-}
-
-function removePaymentMethod(methodId) {
-    // logic <>
-    console.log(`Удаление платежного метода: ${methodId}`);
-    alert(`Платежный метод ${methodId} удален.`);
 }
